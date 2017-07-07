@@ -37,15 +37,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.open_file = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(148, 225);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button1.Location = new System.Drawing.Point(279, 443);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(165, 35);
+            this.button1.Size = new System.Drawing.Size(233, 75);
             this.button1.TabIndex = 0;
             this.button1.Text = "Change";
             this.button1.UseVisualStyleBackColor = true;
@@ -53,53 +58,59 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(275, 154);
+            this.textBox1.Location = new System.Drawing.Point(451, 334);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(154, 20);
             this.textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(275, 183);
+            this.textBox2.Location = new System.Drawing.Point(451, 387);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.Size = new System.Drawing.Size(154, 20);
             this.textBox2.TabIndex = 2;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(275, 45);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button2.Location = new System.Drawing.Point(178, 253);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 23);
+            this.button2.Size = new System.Drawing.Size(154, 40);
             this.button2.TabIndex = 3;
-            this.button2.Text = "Open File";
+            this.button2.Text = "Open Folder";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(102, 50);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(190, 205);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.Size = new System.Drawing.Size(137, 25);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Open File:";
+            this.label1.Text = "Open Folder:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(102, 161);
+            this.label2.AutoEllipsis = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(190, 334);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.Size = new System.Drawing.Size(117, 30);
             this.label2.TabIndex = 5;
             this.label2.Text = "Search for:";
+            this.label2.UseWaitCursor = true;
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(102, 190);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(190, 382);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 13);
+            this.label3.Size = new System.Drawing.Size(142, 25);
             this.label3.TabIndex = 6;
             this.label3.Text = "Change With:";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -112,36 +123,79 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(102, 87);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(174, 86);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 13);
+            this.label4.Size = new System.Drawing.Size(200, 25);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Add extention:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(275, 80);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 8;
+            this.label4.Text = "Filename extention:";
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(148, 117);
+            this.button4.Location = new System.Drawing.Point(651, 137);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(165, 23);
+            this.button4.Size = new System.Drawing.Size(91, 20);
             this.button4.TabIndex = 10;
-            this.button4.Text = "Add";
+            this.button4.Text = "Add Extention";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(451, 86);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(194, 21);
+            this.comboBox1.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Location = new System.Drawing.Point(173, 132);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(220, 25);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Add proper extention:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // open_file
+            // 
+            this.open_file.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.open_file.Location = new System.Drawing.Point(451, 253);
+            this.open_file.Name = "open_file";
+            this.open_file.Size = new System.Drawing.Size(145, 40);
+            this.open_file.TabIndex = 13;
+            this.open_file.Text = "Open File";
+            this.open_file.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(468, 205);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(137, 25);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Open File:";
+            this.label6.UseWaitCursor = true;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(451, 138);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(194, 20);
+            this.textBox3.TabIndex = 15;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(473, 296);
-            this.Controls.Add(this.button4);
+            this.ClientSize = new System.Drawing.Size(849, 565);
             this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.open_file);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -168,8 +222,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button open_file;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
 
