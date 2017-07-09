@@ -23,9 +23,15 @@ namespace textChange_prawilny
         {
             InitializeComponent();
             change.name = "";
+            comboBox1.Items.Insert(0, "*.txt*");
+            comboBox1.Items.Insert(1, "*.rtf*");
+            comboBox1.Items.Insert(2, "*.doc*");
+            //change.textChangeWith = textBox2.Text;
+            //change.textSearchFor = textBox1.Text;
+            
                        
         }
-
+        
         private void label2_Click(object sender, EventArgs e)
         {
             
@@ -38,13 +44,15 @@ namespace textChange_prawilny
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-              FindFolder();
+            FindFolder();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ReplaceText();
+            if (directoryToTraverse != null)
+            { ReplaceText_Folder(); }
+            if (change.name != null)
+            { ReplaceText_File(); }
                                          
         }
         private void label3_Click(object sender, EventArgs e)
@@ -54,7 +62,13 @@ namespace textChange_prawilny
 
         private void button4_Click(object sender, EventArgs e)
         {
-            
+            string added_extention = textBox3.Text;
+            if (comboBox1.Text.Contains(added_extention))
+                {
+                    MessageBox.Show("Extention already exist");
+                }
+            else
+                comboBox1.Items.Add(added_extention);
            
         }
         public void FindFolder()
@@ -66,10 +80,9 @@ namespace textChange_prawilny
 
             if (result == DialogResult.OK)
             {
-                //
+                
                 // The user selected a folder and pressed the OK button.
                 // We print the number of files found.
-                //
                 //DirectoryInfo dir = new DirectoryInfo(folderBrowserDialog1.SelectedPath);
                 files = Directory.GetFiles(folderBrowserDialog1.SelectedPath);
                 directoryToTraverse = folderBrowserDialog1.SelectedPath;
@@ -81,11 +94,17 @@ namespace textChange_prawilny
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
-            openFileDialog1.InitialDirectory = "c:\\";
+            openFileDialog1.InitialDirectory = @"c:\\";
+            /*if (comboBox1.SelectedItem != null)
+            {
+                openFileDialog1.Filter = "(*"+comboBox1.SelectedItem.ToString()+"|*" + comboBox1.SelectedItem.ToString()+"|";
+            }
+             * */
+            
             openFileDialog1.Filter = "Text files (*.txt)|*.txt|" + "All files (*.*)|*.*";
             openFileDialog1.FilterIndex = 2;
             openFileDialog1.RestoreDirectory = true;
-
+            
 
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -94,8 +113,8 @@ namespace textChange_prawilny
 
             }
         }
-        
-        public void ReplaceText() 
+
+        public void ReplaceText_Folder() 
         {
             
                       
@@ -105,16 +124,20 @@ namespace textChange_prawilny
                  
             try
             {
-                
+                string fileTypeToOpen;
                 // what files to open
-
-                string fileTypeToOpen = "*.*";
+                /*if (comboBox1.SelectedItem != null)
+                {
+                    fileTypeToOpen = comboBox1.SelectedItem.ToString();
+                }
+                */
+                //else
+                //{ 
+                    fileTypeToOpen = "*.*";
+                //}
                 // what to look for
-
                 //var regExp = new Regex(change.name);
-
                 //  var regExp = new Regex(patternToMatch);
-
                 // the new content
                 //  var patternToReplace = @"<OutputPath>;C:\bin\$(Configuration)\</OutputPath>";
 
@@ -129,18 +152,43 @@ namespace textChange_prawilny
                     content = Regex.Replace(content, change.textSearchFor, change.textChangeWith);
                     //var newContent = regExp.Replace(contents, patternToReplace);
                     //var newContent = Regex.Replace(content, change.textSearchFor, change.textChangeWith);
-
-                   
-
+                                     
                     File.WriteAllText(file, content);
 
                 }
             }
-            catch (Exception ex)
+            catch (IOException)
             {
-                MessageBox.Show("Exception ex is handled"+ ex);
+                MessageBox.Show("Exception ex is handled");
             }
           
+
+        }
+        public void ReplaceText_File()
+        {
+            change.textChangeWith = textBox2.Text;
+            change.textSearchFor = textBox1.Text;
+            try
+            {
+                var content = string.Empty;
+                using (StreamReader reader = new StreamReader(change.name))
+                {
+                    content = reader.ReadToEnd();
+                    reader.Close();
+                }
+
+                content = Regex.Replace(content, change.textSearchFor, change.textChangeWith);
+
+                using (StreamWriter writer = new StreamWriter(change.name))
+                {
+                    writer.Write(content);
+                    writer.Close();
+                }
+            }
+            catch (IOException)
+            {
+                MessageBox.Show("Exception ex is handled");
+            }
 
         }
 
@@ -153,6 +201,17 @@ namespace textChange_prawilny
         {
 
         }
+
+        private void open_file_Click(object sender, EventArgs e)
+        {
+            FindFile();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
     }
 }
